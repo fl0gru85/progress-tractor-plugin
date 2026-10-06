@@ -1,0 +1,23 @@
+<idea-plugin require-restart="true">
+    <id>com.progresstractor</id>
+    <name>Progress Tractor</name>
+    <vendor>progresstractor</vendor>
+
+    <description><![CDATA[
+    Replaces the IDE's progress bars with a little tractor plowing a field.
+    <ul>
+      <li>Determinate progress: the plowed soil behind the tractor shows how much is done.</li>
+      <li>Indeterminate progress: the tractor drives back and forth across the field.</li>
+      <li>Drawn with Java2D, adapts to light and dark themes and HiDPI.</li>
+    </ul>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <applicationListeners>
+        <listener class="com.progresstractor.TractorUiListener"
+                  topic="com.intellij.ide.ui.LafManagerListener"/>
+        <listener class="com.progresstractor.TractorUiListener"
+                  topic="com.intellij.ide.AppLifecycleListener"/>
+    </applicationListeners>
+</idea-plugin>
