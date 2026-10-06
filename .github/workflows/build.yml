@@ -26,12 +26,12 @@ jobs:
       # Caches Gradle and IntelliJ Platform downloads between runs.
       - uses: gradle/actions/setup-gradle@v5
       - run: ./gradlew check buildPlugin
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: progress-tractor-plugin
           path: build/distributions/*
           if-no-files-found: error
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: test-reports
