@@ -4,3 +4,9 @@
 build/
 out/
 *.iml
+
+# Plugin signing material (kept locally, provided to CI via secrets)
+*.pem
+*.crt
+*.key
+*.p12
