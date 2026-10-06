@@ -40,11 +40,25 @@ intellijPlatform {
             sinceBuild = providers.gradleProperty("pluginSinceBuild")
             untilBuild = provider { null }
         }
+        changeNotes = """
+            <ul>
+              <li>Initial release.</li>
+            </ul>
+        """.trimIndent()
     }
     pluginVerification {
         ides {
             create(IntelliJPlatformType.IntellijIdeaCommunity, providers.gradleProperty("platformVersion"))
         }
+    }
+    // Secrets are only needed for signPlugin/publishPlugin (release workflow); buildPlugin works without them.
+    signing {
+        certificateChain = providers.environmentVariable("CERTIFICATE_CHAIN")
+        privateKey = providers.environmentVariable("PRIVATE_KEY")
+        password = providers.environmentVariable("PRIVATE_KEY_PASSWORD")
+    }
+    publishing {
+        token = providers.environmentVariable("PUBLISH_TOKEN")
     }
 }
 

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <!-- field -->
+  <rect x="2" y="31" width="36" height="5" rx="1" fill="#8B5A2B"/>
+  <!-- body -->
+  <rect x="6" y="17" width="16" height="8" rx="1.5" fill="#3E8E41"/>
+  <!-- cab -->
+  <path d="M20 9h10v16H20z" fill="#3E8E41"/>
+  <rect x="22" y="11" width="6" height="6" rx="0.5" fill="#CFE8F5"/>
+  <!-- exhaust -->
+  <rect x="9" y="11" width="2" height="6" fill="#555555"/>
+  <!-- wheels -->
+  <circle cx="27" cy="26" r="6" fill="#333333"/>
+  <circle cx="27" cy="26" r="2.5" fill="#F2C230"/>
+  <circle cx="10" cy="28" r="4" fill="#333333"/>
+  <circle cx="10" cy="28" r="1.5" fill="#F2C230"/>
+</svg>

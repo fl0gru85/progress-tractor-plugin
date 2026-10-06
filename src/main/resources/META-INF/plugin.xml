@@ -1,7 +1,7 @@
 <idea-plugin require-restart="true">
     <id>com.progresstractor</id>
     <name>Progress Tractor</name>
-    <vendor>progresstractor</vendor>
+    <vendor url="https://github.com/fl0gru85">fl0gru85</vendor>
 
     <description><![CDATA[
     Replaces the IDE's progress bars with a little tractor plowing a field.
