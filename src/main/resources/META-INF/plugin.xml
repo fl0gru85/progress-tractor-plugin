@@ -1,15 +1,26 @@
-<idea-plugin require-restart="true">
+<idea-plugin>
     <id>com.progresstractor</id>
     <name>Progress Tractor</name>
     <vendor url="https://github.com/fl0gru85">fl0gru85</vendor>
 
     <description><![CDATA[
-    Replaces the IDE's progress bars with a little tractor plowing a field.
+    A fun custom <b>progress bar</b> for JetBrains IDEs: a little tractor plows a field while your
+    build, indexing, Gradle sync or tests are running.
+    <br/><br/>
+    <img src="https://raw.githubusercontent.com/fl0gru85/progress-tractor-plugin/main/docs/preview.png"
+         alt="Progress Tractor progress bar in light and dark theme" width="600"/>
+    <h3>Features</h3>
     <ul>
-      <li>Determinate progress: the plowed soil behind the tractor shows how much is done.</li>
-      <li>Indeterminate progress: the tractor drives back and forth across the field.</li>
-      <li>Drawn with Java2D, adapts to light and dark themes and HiDPI.</li>
+      <li><b>Determinate progress:</b> the plowed soil behind the tractor shows how much is done.</li>
+      <li><b>Indeterminate progress:</b> the tractor drives back and forth across the field.</li>
+      <li>Error and warning states (e.g. failing tests) tint the soil, so status stays visible.</li>
+      <li>Adapts to light and dark themes and HiDPI screens, drawn with Java2D.</li>
+      <li>Zero configuration, no restart required: install it and every progress bar becomes a tractor.</li>
     </ul>
+    <p>Works in all IntelliJ-based IDEs: IntelliJ IDEA, PyCharm, WebStorm, PhpStorm, GoLand, Rider,
+    CLion, RubyMine, DataGrip, RustRover and Android Studio.</p>
+    <p><a href="https://github.com/fl0gru85/progress-tractor-plugin">Source code</a> |
+    <a href="https://github.com/fl0gru85/progress-tractor-plugin/issues">Report an issue</a></p>
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
@@ -19,5 +30,7 @@
                   topic="com.intellij.ide.ui.LafManagerListener"/>
         <listener class="com.progresstractor.TractorUiListener"
                   topic="com.intellij.ide.AppLifecycleListener"/>
+        <listener class="com.progresstractor.TractorUiListener"
+                  topic="com.intellij.ide.plugins.DynamicPluginListener"/>
     </applicationListeners>
 </idea-plugin>

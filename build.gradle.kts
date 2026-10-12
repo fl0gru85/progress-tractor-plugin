@@ -1,3 +1,4 @@
+import org.jetbrains.changelog.Changelog
 import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
@@ -5,6 +6,7 @@ plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "2.2.21"
     id("org.jetbrains.intellij.platform") version "2.19.0"
+    id("org.jetbrains.changelog") version "2.2.1"
 }
 
 group = providers.gradleProperty("pluginGroup").get()
@@ -40,11 +42,17 @@ intellijPlatform {
             sinceBuild = providers.gradleProperty("pluginSinceBuild")
             untilBuild = provider { null }
         }
-        changeNotes = """
-            <ul>
-              <li>Initial release.</li>
-            </ul>
-        """.trimIndent()
+        // Notes of the released version from CHANGELOG.md, or the [Unreleased] section if not released yet.
+        changeNotes = provider {
+            with(changelog) {
+                renderItem(
+                    (getOrNull(project.version.toString()) ?: getUnreleased())
+                        .withHeader(false)
+                        .withEmptySections(false),
+                    Changelog.OutputType.HTML,
+                )
+            }
+        }
     }
     pluginVerification {
         ides {
@@ -60,6 +68,11 @@ intellijPlatform {
     publishing {
         token = providers.environmentVariable("PUBLISH_TOKEN")
     }
+}
+
+changelog {
+    groups = listOf("Added", "Changed", "Fixed", "Removed")
+    repositoryUrl = "https://github.com/fl0gru85/progress-tractor-plugin"
 }
 
 tasks.test {

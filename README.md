@@ -34,6 +34,9 @@ Pushing a tag `vX.Y.Z` runs the `Release` workflow: tests, Plugin Verifier, sign
 version `X.Y.Z` to JetBrains Marketplace. The tag defines the version; `pluginVersion` in
 `gradle.properties` is only the local default.
 
+The Marketplace change notes are taken from the `CHANGELOG.md` section matching the version
+(falling back to `[Unreleased]`), so rename `[Unreleased]` to the new version before tagging.
+
 ```bash
 git tag v1.0.1
 git push origin v1.0.1
