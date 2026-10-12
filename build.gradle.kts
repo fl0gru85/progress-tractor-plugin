@@ -1,5 +1,6 @@
 import org.jetbrains.changelog.Changelog
 import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
+import org.jetbrains.kotlin.gradle.dsl.JvmDefaultMode
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
@@ -33,6 +34,9 @@ kotlin {
         // IntelliJ 2024.2 bundles Kotlin 2.0 – don't use newer stdlib APIs.
         apiVersion.set(KotlinVersion.KOTLIN_2_0)
         languageVersion.set(KotlinVersion.KOTLIN_2_0)
+        // Use JVM interface default methods directly; avoids generated bridges for deprecated
+        // platform defaults such as DynamicPluginListener.checkUnloadPlugin.
+        jvmDefault.set(JvmDefaultMode.NO_COMPATIBILITY)
     }
 }
 

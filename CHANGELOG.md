@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.1.1]
+
+### Fixed
+
+- Removed deprecated API usage reported by the Plugin Verifier.
+
 ## [1.1.0]
 
 ### Added
